@@ -1,3 +1,6 @@
 [submodule "apple-emoji-linux"]
 	path = apple-emoji-linux
 	url = https://github.com/samuelngs/apple-emoji-linux.git
+[submodule "nanoemoji"]
+	path = nanoemoji
+	url = https://github.com/googlefonts/nanoemoji.git
