@@ -3,14 +3,19 @@ Do you hate your Android emojis? Yeah, me too. Well, after an obscene amount of 
 
 ## What do you need?
 - vtracer
+
 This can be installed through Cargo - Rust's package manager.
 - python3
+
 We all know how to install Python.
 - a lot of patience
+
 Nanoemoji is woefully slow. Enjoy the wait.
 - FontLab
+
 To merge another font with the converted emoji.
 - node.js
+
 I wrote a quick and dirty script to do vtracer for everything. This could be done with bash but I think I'm gonna choose javascript over bash.
 
 ## What does this do?
