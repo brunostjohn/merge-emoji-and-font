@@ -18,7 +18,7 @@ done
 
 for f in ./build/svg*
 do
-    (cd ./nanoemoji-$temp/nanoemoji && source bin/activate && nanoemoji --ignore_reuse_error -v 0 --color_format=glyf_colr_0 $(find ./svg -name '*.svg') && deactivate && cd ..) &
+    (cd ./nanoemoji-${f#"./build/"}/nanoemoji && source bin/activate && nanoemoji --ignore_reuse_error -v 0 --color_format=glyf_colr_0 $(find ./svg -name '*.svg') && deactivate && cd ..) &
 done
 
 wait
