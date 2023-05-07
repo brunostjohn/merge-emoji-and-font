@@ -33,12 +33,20 @@ svgs.forEach((file) => {
     doneCounterForFolder = 0;
   }
 
-  process.stdout.clearLine();
-  process.stdout.cursorTo(0);
+  if (
+    typeof process.stdout.clearLine === "function" &&
+    typeof process.stdout.cursorTo === "function" &&
+    typeof process.stdout.write === "function"
+  ) {
+    process.stdout.clearLine();
+    process.stdout.cursorTo(0);
 
-  process.stdout.write(
-    `[${doneCounter}/${svgs.length}] ${file}                  `
-  );
+    process.stdout.write(
+      `[${doneCounter}/${svgs.length}] ${file}                  `
+    );
+  } else {
+    console.log(`[${doneCounter}/${svgs.length}] ${file}                  `);
+  }
 
   child_process.execSync(
     `vtracer --input ${path.join(
