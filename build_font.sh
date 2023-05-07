@@ -5,19 +5,20 @@ for f in ./build/svg*
 do
     temp=${f#"./build/"}
     mkdir ./nanoemoji-$temp
-    rsync -a ./nanoemoji/* ./nanoemoji-$temp
-    mv ./build/$temp ./nanoemoji-$temp/svg
-    python3 -m venv ./nanoemoji-$temp/
     cd ./nanoemoji-$temp
+    https://github.com/googlefonts/nanoemoji.git
+    mv ../build/$temp ./nanoemoji/svg
+    cd nanoemoji
+    python3 -m venv .
     source bin/activate
     python3 -m pip install -e .
     deactivate
-    cd ..
+    cd ../..
 done
 
 for f in ./build/svg*
 do
-    (cd ./nanoemoji-$temp/ && source bin/activate && nanoemoji --ignore_reuse_error -v 0 --color_format=glyf_colr_0 $(find ./svg -name '*.svg') && deactivate && cd ..) &
+    (cd ./nanoemoji-$temp/nanoemoji && source bin/activate && nanoemoji --ignore_reuse_error -v 0 --color_format=glyf_colr_0 $(find ./svg -name '*.svg') && deactivate && cd ..) &
 done
 
 wait
