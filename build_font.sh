@@ -16,9 +16,19 @@ do
     cd ../..
 done
 
-for f in ./build/svg*
+rm -rf build
+
+for f in ./nanoemoji-svg*
 do
-    (cd ./nanoemoji-${f#"./build/"}/nanoemoji && source bin/activate && nanoemoji --ignore_reuse_error -v 0 --color_format=glyf_colr_0 $(find ./svg -name '*.svg') && deactivate && cd ..) &
+    (cd $f/nanoemoji && source bin/activate && nanoemoji --ignore_reuse_error -v 0 --color_format=glyf_colr_0 $(find ./svg -name '*.svg') && deactivate && cd ..) &
 done
 
 wait
+
+mkdir out
+
+for f in ./nanoemoji-svg*
+do
+    name=${f#"./nanoemoji-svg"}
+    cp $f/nanoemoji/build/Font.ttf out/Font$name.ttf
+done

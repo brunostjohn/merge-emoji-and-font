@@ -71,3 +71,8 @@ jobs:
         with:
           name: code-coverage-report
           path: nanoemoji-svg9/build/Font.ttf
+      - name: Upload All Fonts
+        uses: actions/upload-artifact@v3
+        with:
+          name: all-fonts
+          path: out/
