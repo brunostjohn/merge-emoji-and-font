@@ -6,7 +6,7 @@ do
     temp=${f#"./build/"}
     mkdir ./nanoemoji-$temp
     cd ./nanoemoji-$temp
-    https://github.com/googlefonts/nanoemoji.git
+    git clone https://github.com/googlefonts/nanoemoji.git
     mv ../build/$temp ./nanoemoji/svg
     cd nanoemoji
     python3 -m venv .
