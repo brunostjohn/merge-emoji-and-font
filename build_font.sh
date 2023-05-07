@@ -5,7 +5,7 @@ for f in ./build/svg*
 do
     temp=${f#"./build/"}
     mkdir ./nanoemoji-$temp
-    cp -R ./nanoemoji/* ./nanoemoji-$temp/
+    rsync -a ./nanoemoji/* ./nanoemoji-$temp
     mv ./build/$temp ./nanoemoji-$temp/svg
     python3 -m venv ./nanoemoji-$temp/
     cd ./nanoemoji-$temp
